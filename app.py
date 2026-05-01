@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 import csv
@@ -7,13 +8,13 @@ import random
 # 1. THE SETTINGS (Side of the screen)
 st.title("🏔️ Highland Walk Randomizer")
 
-max_grade = st.slider("Max Grade", 1, 5, 3)
-postcode = st.text_input("Your Postcode", "IV1 1AA")
-max_dist = st.number_input("Max Distance to Travel (miles)", value=25)
-max_time = st.number_input("Max Walk Time (hours)", value=4.0)
+max_grade = st.sidebar.slider("Max Grade", 1, 5, 3)
+postcode = st.sidebar.text_input("Your Postcode", "IV1 1AA")
+max_dist = st.sidebar.number_input("Max Travel (miles)", value=25)
+max_time = st.sidebar.number_input("Max Walk Time (hours)", value=4.0)
 
 # 2. LOAD DATA
-with open('walks1.csv', mode='r', encoding='latin1') as file:
+with open('walks1.csv', mode='r') as file:
     hikes = list(csv.DictReader(file))
 
 # 3. THE "GO" BUTTON
@@ -42,6 +43,12 @@ if st.button("Find a Random Walk"):
         # 4. SHOW THE RESULT
         if matches:
             walk = random.choice(matches)
+            gps_parts = walk['GPS START'].split(',')
+            map_data = pd.DataFrame({
+                'lat': [float(gps_parts[0])],
+                'lon': [float(gps_parts[1])]
+            })
+            st.map(map_data)
             st.success(f"Go here: {walk['Walk']}")
             st.write(f"Grade: {walk['Grade']} | Distance: {walk['dist_away']} miles away")
             st.write(f"[Link to Walkhighlands]({walk['Link']})")
