@@ -5,8 +5,10 @@ from geopy.distance import geodesic
 import csv
 import random
 
-# 1. THE SETTINGS (Side of the screen)
+# 1. THE SETTINGS 
 st.title("🏔️ Walk Highlands Randomizer")
+st.write("Welcome to the Walk Randomizer! This tool helps you discover new trails across the Scottish Mainland. Simply adjust the filters below and hit the button to find your next adventure.")
+st.caption("red:[All walk information was gathered by hand from the walkhighlands website, there me be errors in start coordinates or web addresses. Please double check with the walkhighlands website before starting your journey. Always have the appropriate gear for the season and your hike your undertaking.]"
 
 max_grade = st.slider("Max Grade - 1 Easy ---- 5 Hard", 1, 5, 3)
 postcode = st.text_input("Your Postcode", "IV1 1AA")
