@@ -26,7 +26,7 @@ if st.button("Find a Random Walk"):
         matches = []
 
         for hike in hikes:
-            # Your original logic
+            
             h_grade = int(hike['Grade'])
             h_hours = float(hike['Hours'])
 
