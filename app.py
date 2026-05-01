@@ -14,7 +14,7 @@ max_dist = st.sidebar.number_input("Max Travel (miles)", value=25)
 max_time = st.sidebar.number_input("Max Walk Time (hours)", value=4.0)
 
 # 2. LOAD DATA
-with open('walks1.csv', mode='r') as file:
+with open('walks1.csv', mode='r', encoding='latin1') as file:
     hikes = list(csv.DictReader(file))
 
 # 3. THE "GO" BUTTON
