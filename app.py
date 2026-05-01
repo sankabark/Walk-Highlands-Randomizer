@@ -57,7 +57,7 @@ if st.button("Find a Random Walk"):
             st.success(f"Go here: {walk['Walk']}")
             st.write(f"Grade: {walk['Grade']} | Distance: {walk['dist_away']} miles away")
             st.write(f"[Link to Walkhighlands]({walk['Link']})")
-             map_data = pd.DataFrame({
+            map_data = pd.DataFrame({
                 'lat': [float(gps_parts[0])],
                 'lon': [float(gps_parts[1])]
             })
