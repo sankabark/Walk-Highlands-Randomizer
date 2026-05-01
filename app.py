@@ -6,9 +6,9 @@ import csv
 import random
 
 # 1. THE SETTINGS (Side of the screen)
-st.title("🏔️ Highland Walk Randomizer")
+st.title("🏔️ Walk Highlands Randomizer")
 
-max_grade = st.slider("Max Grade", 1, 5, 3)
+max_grade = st.slider("Max Grade - 1 Easy ---- 5 Hard", 1, 5, 3)
 postcode = st.text_input("Your Postcode", "IV1 1AA")
 max_dist = st.number_input("Max Travel (miles)", value=25)
 max_time = st.number_input("Max Walk Time (hours)", value=4.0)
