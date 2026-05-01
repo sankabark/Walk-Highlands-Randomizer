@@ -8,10 +8,10 @@ import random
 # 1. THE SETTINGS (Side of the screen)
 st.title("🏔️ Highland Walk Randomizer")
 
-max_grade = st.sidebar.slider("Max Grade", 1, 5, 3)
-postcode = st.sidebar.text_input("Your Postcode", "IV1 1AA")
-max_dist = st.sidebar.number_input("Max Travel (miles)", value=25)
-max_time = st.sidebar.number_input("Max Walk Time (hours)", value=4.0)
+max_grade = st.slider("Max Grade", 1, 5, 3)
+postcode = st.text_input("Your Postcode", "IV1 1AA")
+max_dist = st.number_input("Max Travel (miles)", value=25)
+max_time = st.number_input("Max Walk Time (hours)", value=4.0)
 
 # 2. LOAD DATA
 with open('walks1.csv', mode='r', encoding='latin1') as file:
