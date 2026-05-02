@@ -28,8 +28,8 @@ with open('walks1.csv', mode='r', encoding='latin1') as file:
 
 # 3. THE "GO" BUTTON
 if st.button("Find a Random Walk"):
-    geolocator = Nominatim(user_agent="my_hike_app")
-    location = geolocator.geocode(postcode)
+    geolocator = Nominatim(user_agent="highland_walks_scottish_trails")
+    location = geolocator.geocode(postcode, timeout=10)
 
     if location:
         user_coords = (location.latitude, location.longitude)
